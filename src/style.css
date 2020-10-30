@@ -100,7 +100,6 @@
   background-size: cover;
 }
 
-.ril__caption,
 .ril__toolbar {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -111,9 +110,18 @@
 }
 
 .ril__caption {
+  position: absolute;
+  top: 0;
   bottom: 0;
-  max-height: 150px;
-  overflow: auto;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.ril__captionContent {
+  bottom: 15px;
+  left: 15px;
+  position: absolute;
 }
 
 .ril__captionContent {

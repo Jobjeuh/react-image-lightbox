@@ -1388,20 +1388,27 @@ class ReactImageLightbox extends Component {
         );
       } else {
         images.push(
-          <img
-            {...(imageCrossOrigin ? { crossOrigin: imageCrossOrigin } : {})}
-            className={`${imageClass} ril__image`}
-            onDoubleClick={this.handleImageDoubleClick}
-            onWheel={this.handleImageMouseWheel}
-            onDragStart={e => e.preventDefault()}
-            style={imageStyle}
-            src={imageSrc}
-            key={imageSrc + keyEndings[srcType]}
-            alt={
-              typeof imageTitle === 'string' ? imageTitle : translate('Image')
-            }
-            draggable={false}
-          />
+          <>
+            <img
+              {...(imageCrossOrigin ? { crossOrigin: imageCrossOrigin } : {})}
+              className={`${imageClass} ril__image`}
+              onDoubleClick={this.handleImageDoubleClick}
+              onWheel={this.handleImageMouseWheel}
+              onDragStart={e => e.preventDefault()}
+              style={imageStyle}
+              src={imageSrc}
+              key={imageSrc + keyEndings[srcType]}
+              alt={
+                typeof imageTitle === 'string' ? imageTitle : translate('Image')
+              }
+              draggable={false}
+            />
+            <div className="ril__caption">
+              <div className="ril__captionContent">
+                {this.props.imageCaption}
+              </div>
+            </div>
+          </>
         );
       }
     };
@@ -1601,19 +1608,19 @@ class ReactImageLightbox extends Component {
             </ul>
           </div>
 
-          {this.props.imageCaption && (
-            // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-            <div // Image caption
-              onWheel={this.handleCaptionMousewheel}
-              onMouseDown={event => event.stopPropagation()}
-              className="ril-caption ril__caption"
-              ref={this.caption}
-            >
-              <div className="ril-caption-content ril__captionContent">
-                {this.props.imageCaption}
-              </div>
-            </div>
-          )}
+          {/*{this.props.imageCaption && (*/}
+          {/*  // eslint-disable-next-line jsx-a11y/no-static-element-interactions*/}
+          {/*  <div // Image caption*/}
+          {/*    onWheel={this.handleCaptionMousewheel}*/}
+          {/*    onMouseDown={event => event.stopPropagation()}*/}
+          {/*    className="ril-caption ril__caption"*/}
+          {/*    ref={this.caption}*/}
+          {/*  >*/}
+          {/*    <div className="ril-caption-content ril__captionContent">*/}
+          {/*      {this.props.imageCaption}*/}
+          {/*    </div>*/}
+          {/*  </div>*/}
+          {/*)}*/}
         </div>
       </Modal>
     );
